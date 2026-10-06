@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interest Calculator</title>
+</head>
+<body>
+    <center>
+        <h1 style="color: blue;">Simple Interest Calculator</h1>
+        <form method="post" action="{{ url_for('si') }}">
+            <input type="number" step="any" name="p" placeholder="Principal Amount"><br><br>
+            <input type="number" step="any" name="t" placeholder="Time (in years)"><br><br>
+            <input type="number" step="any" name="r" placeholder="Rate of Interest"><br><br>
+            <button type="submit">Calculate</button>
+        </form>
+
+        {% if result is not none %}
+            <hr>
+            <h2>Simple Interest Result</h2>
+            <p>Principal: {{ p }}</p>
+            <p>Time: {{ t }}</p>
+            <p>Rate: {{ r }}</p>
+            <p><strong>Simple Interest:</strong> {{ result }}</p>
+            {% if total_amount is not none %}
+                <p><strong>Total Amount:</strong> {{ total_amount }}</p>
+            {% endif %}
+        {% endif %}
+    </center>
+</body>
+</html>
